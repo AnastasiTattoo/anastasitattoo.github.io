@@ -1,0 +1,11 @@
+.ContentWrapper {
+    display: grid;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.FlipText {
+    justify-self: center;
+    text-transform: uppercase;
+}
