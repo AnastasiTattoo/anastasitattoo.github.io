@@ -1,4 +1,4 @@
-import { WAITING_ATTEMPT_DELAY } from "./constants";
+import { WAITING_ATTEMPT_DELAY } from "./constants.js";
 
 export const waitForRender = () => new Promise((resolve) => {
     const waitForRender = () => {
