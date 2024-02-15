@@ -90,13 +90,15 @@ export class CardSide extends Component {
                         id,
                         className: `Card ${ isFrontCard ? '' : FLIPPED_CARD_CLASS }`
                     },
-                    src: `/cards/default/${ imageName }`
+                    src: `/cards/default/${ imageName }`,
+                    hasStyles: false
                 }) }
                 ${ await createComponent(Button, {
                     mix: {
                         id: `${ id }Button`,
                         className: `CardButton ${ isFrontCard ? '' : HIDDEN_BUTTON_CLASS }`
-                    }
+                    },
+                    hasStyles: false
                 }) }
             </div>
         `;

@@ -7,7 +7,9 @@ export class App extends Component {
     async renderContent() {
         return `
             <div class="ContentWrapper">
-                ${ await createComponent(Card) }
+                ${ await createComponent(Card, {
+                    hasStyles: false
+                }) }
                 <p class="FlipText">Click on card to flip it</p>
             </div>
         `;

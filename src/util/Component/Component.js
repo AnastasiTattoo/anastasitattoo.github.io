@@ -9,7 +9,7 @@ export class Component {
 
     #isStylesLinked = false;
 
-    constructor(props) {
+    constructor(props = {}) {
         this.name = this.constructor.name;
         this.props = props;
 
@@ -21,8 +21,16 @@ export class Component {
     }
 
     #linkStyles() {
-        const stylePath = `${ COMPONENTS_PATH }${ this.name }/${ this.name }.css`;
+        const {
+            hasStyles = true
+        } = this.props;
 
+        if (!hasStyles) {
+            this.#isStylesLinked = true;
+            return;
+        }
+
+        const stylePath = `${ COMPONENTS_PATH }${ this.name }/${ this.name }.css`;
         addStylesFile(stylePath).then(() => {
             this.#isStylesLinked = true;
         });
