@@ -68,6 +68,10 @@ export class CardSide extends Component {
     
         const cardCode = getUrlParams('code=') || DEFAULT_CARD_CODE;
         const imageSrc = `/cards/${ cardCode }/${ imageName }`;
+
+        if (!(await isFileExists(imageSrc))) {
+            return `/cards/${ DEFAULT_CARD_CODE }/${ imageName }`;
+        }
     
         return imageSrc;
     }
