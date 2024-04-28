@@ -9,7 +9,7 @@ export class HomePage extends RouteComponent {
             <div class="HomePage ContentWrapper">
                 ${ await createComponent(Link, {
                     text: 'Anastasi.Tattoo',
-                    href: 'https://www.instagram.com/anastasi.tatto',
+                    href: 'https://www.instagram.com/anastasi.tattoo',
                     className: 'Title',
                     inNewTab: true
                 }) }
