@@ -1,22 +1,15 @@
-import { isFileExists } from './isFileExists.js';
-
 export const addStylesFile = async (stylesFile) => {
-    return new Promise(async (resolve) => {
-        const fileExists = await isFileExists(stylesFile);
+    const links = document.getElementsByTagName('link');
 
-        if (fileExists) {
-            const links = document.getElementsByTagName('link');
-
-            for (const link of links) {
-                if (link.getAttribute('href') === stylesFile) {
-                    resolve(null);
-                    return;
-                }
-            }
-
-            document.getElementsByTagName('head')[0].innerHTML += `<link rel="stylesheet" href="${ stylesFile }">`;
+    for (const link of links) {
+        if (link.getAttribute('href') === stylesFile) {
+            return;
         }
+    }
 
-        resolve(null);
-    });
+    const link = document.createElement('link');
+    link.href = stylesFile;
+    link.rel = 'stylesheet';
+
+    document.head.appendChild(link);
 };
