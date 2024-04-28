@@ -30,7 +30,7 @@ export class Component {
             return;
         }
 
-        const stylePath = `${ COMPONENTS_PATH }${ this.name }/${ this.name }.css`;
+        const stylePath = this.getStylesPath();
         addStylesFile(stylePath).then(() => {
             this.#isStylesLinked = true;
         });
@@ -65,6 +65,11 @@ export class Component {
             ...this.state,
             ...newState
         }
+    }
+
+    // Can be overriden
+    getStylesPath() {
+        return `${ COMPONENTS_PATH }${ this.name }/${ this.name }.css`;
     }
 
     // Can be overriden

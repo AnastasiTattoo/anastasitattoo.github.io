@@ -1,6 +1,3 @@
-import { createRootComponent } from '/src/util/Common/createComponent.js';
-import App from '/src/components/App/App.js';
+import { pageRender } from '/src/util/Common/render.js';
 
-window.isContentRendered = false;
-
-createRootComponent(App);
+pageRender();

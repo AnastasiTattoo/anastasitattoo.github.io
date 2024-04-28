@@ -1,0 +1,14 @@
+.ContentWrapper {
+    display: grid;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    align-content: center;
+}
+
+.HomePage .Title {
+    color: black;
+    font-size: 72px;
+    font-weight: bold;
+    text-transform: uppercase;
+}

@@ -6,8 +6,48 @@
         <meta charset="utf-8">
         <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
 
-        <link rel="stylesheet" href="style.css">
         <script src="index.js" type="module" defer></script>
+        <script id="clickEvent">
+            const EventMap = [];
+
+            function registerClickEvent (id, event) {
+                try {
+                    EventMap.forEach(({ id: event_id }) => {
+                        if (event_id === id) {
+                            throw new Error();
+                        }
+                    });
+                }
+                catch (e) {
+                    return;
+                }
+
+                EventMap.push({ id, event });
+            };
+
+            function callClickEvent (id) {
+                try {
+                    let event = null;
+
+                    EventMap.forEach(({ id: event_id, event: event_event }) => {
+                        if (event_id === id) {
+                            event = event_event;
+                        }
+                    });
+
+                    if (event) {
+                        event();
+                    }
+                    else {
+                        throw new Error("CLICK EVENT ID NOT FOUND!");
+                    }
+                }
+                catch (e) {
+                    console.error(e.message);
+                    return;
+                }
+            };
+        </script>
     </head>
     <body>
         <div id="root"></div>

@@ -5,11 +5,13 @@ import Button from '../Button/Button.js';
 import { isFileExists } from '../../util/Common/isFileExists.js';
 import { addClass, removeClass } from '../../util/Common/htmlClasses.js';
 import {
+    DEFAULT_CARD_CODE,
     FLIPPED_CARD_CLASS,
     FLIP_OTHER_SIDE_DELAY,
-    HIDDEN_BUTTON_CLASS } from './CardSide.config.js';
+    HIDDEN_BUTTON_CLASS
+} from './CardSide.config.js';
 import { createComponent } from '../../util/Common/createComponent.js';
-import { getUrlParams } from '../../util/Common/getUrlParams.js';
+import { getUrlParams } from '../../util/Common/Url.js';
 
 export class CardSide extends Component {
     setButtonEvent() {
@@ -64,15 +66,10 @@ export class CardSide extends Component {
             imageName = ''
         } = this.props;
     
-        const cardCode = getUrlParams('code=');
+        const cardCode = getUrlParams('code=') || DEFAULT_CARD_CODE;
         const imageSrc = `/cards/${ cardCode }/${ imageName }`;
     
-        const cardCodeExists = await isFileExists(imageSrc);
-        if (!cardCodeExists){
-            return;
-        }
-    
-        document.getElementById(id).setAttribute('src', imageSrc);
+        return imageSrc;
     }
 
     async renderContent() {
@@ -90,7 +87,7 @@ export class CardSide extends Component {
                         id,
                         className: `Card ${ isFrontCard ? '' : FLIPPED_CARD_CLASS }`
                     },
-                    src: `/cards/default/${ imageName }`,
+                    src: await this.getCardPathFromSearch(),
                     hasStyles: false
                 }) }
                 ${ await createComponent(Button, {
