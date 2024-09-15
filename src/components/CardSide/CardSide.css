@@ -80,11 +80,22 @@
 }
 
 .CardContentCode {
-    bottom: 20%;
+    top: 75.5%;
     position: absolute;
     left: 51%;
     font-size: 40px;
     font-family: "Baskerville Normal";
     font-weight: 600;
     color: #1f1c10;
+}
+
+@media screen and (min-width: 800px) {
+    .CardContentPrice {
+        font-size: 56px;
+    }
+    
+    .CardContentCode {
+        top: 74.75%;
+        font-size: 32px;
+    }
 }
