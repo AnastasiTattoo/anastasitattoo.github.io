@@ -17,6 +17,7 @@
 .Card {
     transition: transform 0.25s ease-in-out;
     height: 100%;
+    object-fit: contain;
     max-height: 90vh;
     z-index: 5;
     grid-row: 1;
