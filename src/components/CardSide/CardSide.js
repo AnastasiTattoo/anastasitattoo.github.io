@@ -2,16 +2,15 @@ import Component from '../../util/Component/Component.js';
 import Image from '../Image/Image.js';
 import Button from '../Button/Button.js';
 
-import { isFileExists } from '../../util/Common/isFileExists.js';
 import { addClass, removeClass } from '../../util/Common/htmlClasses.js';
 import {
-    DEFAULT_CARD_CODE,
     FLIPPED_CARD_CLASS,
     FLIP_OTHER_SIDE_DELAY,
     HIDDEN_BUTTON_CLASS
 } from './CardSide.config.js';
 import { createComponent } from '../../util/Common/createComponent.js';
 import { getUrlParams } from '../../util/Common/Url.js';
+import Cards from '../../config/cards.js';
 
 export class CardSide extends Component {
     setButtonEvent() {
@@ -31,19 +30,26 @@ export class CardSide extends Component {
         this.setState({
             currentCard: document.getElementById(id),
             currentCardButton: document.getElementById(`${ id }Button`),
+            currentCardContent: document.getElementById(`${ id }Content`),
             otherCard: document.getElementById(otherSideId),
-            otherCardButton: document.getElementById(`${ otherSideId }Button`)
+            otherCardButton: document.getElementById(`${ otherSideId }Button`),
+            otherCardContent: document.getElementById(`${ otherSideId }Content`),
         });
     }
 
     rotateCard() {
         const {
             currentCard,
-            currentCardButton
+            currentCardButton,
+            currentCardContent
         } = this.state;
 
         addClass(currentCard, FLIPPED_CARD_CLASS);
         addClass(currentCardButton, HIDDEN_BUTTON_CLASS);
+
+        if (currentCardContent) {
+            addClass(currentCardContent, HIDDEN_BUTTON_CLASS);
+        }
 
         this.rotateOtherCard();
     }
@@ -52,28 +58,27 @@ export class CardSide extends Component {
         setTimeout(() => {
             const {
                 otherCard,
-                otherCardButton
+                otherCardButton,
+                otherCardContent
             } = this.state;
 
             removeClass(otherCard, FLIPPED_CARD_CLASS);
             removeClass(otherCardButton, HIDDEN_BUTTON_CLASS);
+
+            if (otherCardContent) {
+                removeClass(otherCardContent, HIDDEN_BUTTON_CLASS);
+            }
         }, FLIP_OTHER_SIDE_DELAY);
     }
 
-    async getCardPathFromSearch() {
-        const {
-            id = '',
-            imageName = ''
-        } = this.props;
-    
-        const cardCode = getUrlParams('code=') || DEFAULT_CARD_CODE;
-        const imageSrc = `/cards/${ cardCode }/${ imageName }`;
+    getCardPathFromSearch() {
+        const cardCode = getUrlParams('code=');
 
-        if (!(await isFileExists(imageSrc))) {
-            return `/cards/${ DEFAULT_CARD_CODE }/${ imageName }`;
+        if (cardCode && Cards[cardCode]) {
+            return { cardCode, ...Cards[cardCode] };
         }
-    
-        return imageSrc;
+
+        return {};
     }
 
     async renderContent() {
@@ -82,6 +87,7 @@ export class CardSide extends Component {
             imageName = '',
             isFrontCard = true
         } = this.props;
+        const { cardCode, amount } = this.getCardPathFromSearch();
 
         return `
             <div class="CardSideWrapper">
@@ -91,7 +97,7 @@ export class CardSide extends Component {
                         id,
                         className: `Card ${ isFrontCard ? '' : FLIPPED_CARD_CLASS }`
                     },
-                    src: await this.getCardPathFromSearch(),
+                    src: `/assets/card/${ imageName }`,
                     hasStyles: false
                 }) }
                 ${ await createComponent(Button, {
@@ -101,6 +107,15 @@ export class CardSide extends Component {
                     },
                     hasStyles: false
                 }) }
+                ${!isFrontCard && amount 
+                    ? `
+                        <div id="${id}Content" class="CardContent ${HIDDEN_BUTTON_CLASS}">
+                            <div class="CardContentPrice">€${amount}</div>
+                            <div class="CardContentCode">${cardCode}</div>
+                        </div>
+                    `
+                    : ''
+                }
             </div>
         `;
     }
@@ -112,7 +127,6 @@ export class CardSide extends Component {
 
         this.initCardSide();
         this.setButtonEvent();
-        this.getCardPathFromSearch();
 
         if (!isFrontCard) {
             this.rotateCard();

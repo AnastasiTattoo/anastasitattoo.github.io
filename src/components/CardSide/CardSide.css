@@ -1,9 +1,17 @@
+@font-face {
+    font-family: 'Baskerville Normal';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Baskerville Normal'), url('../../fonts/baskvl.woff') format('woff');
+}
+
 .CardSideWrapper {
     display: grid;
     justify-content: center;
     grid-row: 1;
     grid-column: 1;
     height: fit-content;
+    position: relative;
 }
 
 .Card {
@@ -47,4 +55,36 @@
 
 .CardButton.Hidden {
     display: none;
+}
+
+.CardContent {
+    transition: transform 0.25s ease-in-out;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 9;
+}
+
+.CardContent.Hidden {
+    transform: rotate3d(0, 1, 0, 90deg);
+}
+
+.CardContentPrice {
+    position: absolute;
+    top: 22%;
+    left: 26%;
+    font-size: 72px;
+    font-weight: 600;
+    font-family: "Baskerville Normal";
+    color: #1f1c10;
+}
+
+.CardContentCode {
+    bottom: 20%;
+    position: absolute;
+    left: 51%;
+    font-size: 40px;
+    font-family: "Baskerville Normal";
+    font-weight: 600;
+    color: #1f1c10;
 }
