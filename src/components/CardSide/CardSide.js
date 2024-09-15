@@ -11,6 +11,7 @@ import {
 import { createComponent } from '../../util/Common/createComponent.js';
 import { getUrlParams } from '../../util/Common/Url.js';
 import Cards from '../../config/cards.js';
+import isIOS from '../../util/Common/isIOS.js';
 
 export class CardSide extends Component {
     setButtonEvent() {
@@ -89,6 +90,8 @@ export class CardSide extends Component {
         } = this.props;
         const { cardCode, amount } = this.getCardPathFromSearch();
 
+        const iosClass = isIOS() ? 'iOS' : '';
+
         return `
             <div class="CardSideWrapper">
                 ${ await createComponent(Image, {
@@ -110,8 +113,8 @@ export class CardSide extends Component {
                 ${!isFrontCard && amount 
                     ? `
                         <div id="${id}Content" class="CardContent ${HIDDEN_BUTTON_CLASS}">
-                            <div class="CardContentPrice">€${amount}</div>
-                            <div class="CardContentCode">${cardCode}</div>
+                            <div class="CardContentPrice ${iosClass}">€${amount}</div>
+                            <div class="CardContentCode ${iosClass}">${cardCode}</div>
                         </div>
                     `
                     : ''
