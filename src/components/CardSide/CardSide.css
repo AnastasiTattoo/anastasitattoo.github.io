@@ -91,7 +91,7 @@
     color: #1f1c10;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
     .CardSideWrapper {
         display: flex;
     }
