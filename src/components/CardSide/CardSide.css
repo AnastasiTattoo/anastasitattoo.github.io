@@ -75,7 +75,7 @@
     position: absolute;
     top: 22%;
     left: 26%;
-    font-size: 54px;
+    font-size: 6vh;
     font-weight: 600;
     font-family: "Baskerville Normal";
     color: #1f1c10;
@@ -85,7 +85,7 @@
     top: 75%;
     position: absolute;
     left: 51%;
-    font-size: 30px;
+    font-size: 3.5vh;
     font-family: "Baskerville Normal";
     font-weight: 600;
     color: #1f1c10;
