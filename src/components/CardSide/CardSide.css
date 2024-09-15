@@ -21,6 +21,7 @@
     z-index: 5;
     grid-row: 1;
     grid-column: 1;
+    max-width: 80vw;
 }
 
 .Card.Flipped {
@@ -73,18 +74,28 @@
     position: absolute;
     top: 22%;
     left: 26%;
-    font-size: 72px;
+    font-size: 54px;
     font-weight: 600;
     font-family: "Baskerville Normal";
     color: #1f1c10;
 }
 
 .CardContentCode {
-    top: 75.5%;
+    top: 75%;
     position: absolute;
     left: 51%;
-    font-size: 40px;
+    font-size: 30px;
     font-family: "Baskerville Normal";
     font-weight: 600;
     color: #1f1c10;
+}
+
+@media screen and (max-width: 600px) {
+    .CardContentPrice {
+        font-size: 9vw;
+    }
+
+    .CardContentCode {
+        font-size: 5vw;
+    }
 }
