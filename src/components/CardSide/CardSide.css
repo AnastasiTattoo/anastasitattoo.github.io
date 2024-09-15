@@ -106,10 +106,6 @@
 
     .CardContentCode {
         font-size: 5vw;
-        top: 74.5%;
-    }
-
-    .CardContentCode.iOS {
-        color: red;
+        top: 74.75%;
     }
 }
