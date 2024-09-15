@@ -1,4 +1,4 @@
-export default isIOS = () => {
+export const isIOS = () => {
   return [
     'iPad Simulator',
     'iPhone Simulator',

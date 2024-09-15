@@ -11,7 +11,7 @@ import {
 import { createComponent } from '../../util/Common/createComponent.js';
 import { getUrlParams } from '../../util/Common/Url.js';
 import Cards from '../../config/cards.js';
-import isIOS from '../../util/Common/isIOS.js';
+import { isIOS } from '../../util/Common/isIOS.js';
 
 export class CardSide extends Component {
     setButtonEvent() {
