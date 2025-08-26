@@ -1,3 +1,6 @@
-import { pageRender } from '/src/util/Common/render.js';
+import waitFor from '/src/utils/waitFor';
 
-pageRender();
+waitFor(() => window?.LESCH?.isReady || false, 10)
+  .then(() => {
+    LESCH.ComponentRenderer.renderRoot();
+  });

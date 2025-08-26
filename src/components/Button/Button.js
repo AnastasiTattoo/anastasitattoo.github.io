@@ -1,34 +1,42 @@
-import Component from "../../util/Component/Component.js";
+import Component from "/src/components/Component/Component";
 
 export class Button extends Component {
-    async renderContent() {
-        const {
-            text = '',
-            mix: {
-                id = '',
-                className = '',
-            } = {},
-            onClick = null
-        } = this.props;
+  async render() {
+    const {
+      text = '',
+      mix: {
+        id = '',
+        className = '',
+      } = {},
+      onClick = null
+    } = this.props;
 
-        const eventId = text.replace(' ', '');
+    if (onClick) {
+      const eventName = LESCH.EventController.getRandomEventName(text);
+      LESCH.EventController.registerEvent(eventName, onClick);
 
-        if (onClick) {
-            registerClickEvent(eventId, onClick);
-        }
-
-        const onClickEvent = onClick ? `callClickEvent('${eventId}')` : '';
-
-        return `
-            <button
-              id="${id}"
-              class="${className}"
-              onclick="${onClickEvent}"
-            >
-                ${text}
-            </button>
-        `;
+      return `
+        <button
+          type="button"
+          ${id ? `id="${id}"` : ''}
+          ${className ? `class="${className}"` : ''}
+          onclick="LESCH.EventController.callEvent('${eventName}')"
+        >
+          ${text}
+        </button>
+      `;
     }
+
+    return `
+      <button
+        type="button"
+        ${id ? `id="${id}"` : ''}
+        ${className ? `class="${className}"` : ''}
+      >
+        ${text}
+      </button>
+    `;
+  }
 };
 
 export default Button;

@@ -1,0 +1,77 @@
+nav {
+  background-color: #EEEAE5;
+  padding: 10px;
+  padding-right: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+}
+  
+nav .nav-links {
+  display: flex;
+  gap: 50px;
+  padding: 10px 20px;
+}
+
+nav .nav-links .nav-button {
+  color: #9D5248;
+  background-color: unset;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  padding-block: 5px;
+  position: relative;
+}
+
+nav .nav-links .nav-button:active {
+  color: #a27670;
+}
+
+nav .nav-links .nav-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  border-bottom: solid 2px #9D5248;
+  width: 100%;
+  left: 0;
+  transform: rotateY(90deg);
+  transition: transform 0.2s ease;
+}
+
+nav .nav-links .nav-button:hover::after {
+  transform: rotateY(0deg);
+}
+
+nav .nav-links .nav-button:active::after {
+  transform: rotateY(0deg);
+  border-bottom-color: #a27670;
+}
+
+nav .nav-links .nav-button:active,
+nav .nav-links .nav-button:hover,
+nav .nav-links .nav-button:focus,
+nav .nav-links .nav-button:focus-visible {
+  background: none;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+nav .nav-underline {
+  position: absolute;
+  bottom: -8px;
+  height: 8px;
+  width: 100%;
+  left: 0;
+  background-color: #c3b0a5;
+  border-block: solid 2px #9D5248;
+}

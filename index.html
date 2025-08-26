@@ -1,56 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>anastasi.tattoo</title>
 
-        <meta charset="utf-8">
-        <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
+<head>
+  <title>Lesch JS Framework</title>
 
-        <script src="index.js" type="module" defer></script>
-        <script id="clickEvent">
-            const EventMap = [];
+  <meta charset="utf-8">
+  <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
 
-            function registerClickEvent (id, event) {
-                try {
-                    EventMap.forEach(({ id: event_id }) => {
-                        if (event_id === id) {
-                            throw new Error();
-                        }
-                    });
-                }
-                catch (e) {
-                    return;
-                }
+  <script src="preload.js" type="module"></script>
+  <script src="index.js" type="module" defer></script>
+</head>
 
-                EventMap.push({ id, event });
-            };
+<body>
+  <div id="root"></div>
+</body>
 
-            function callClickEvent (id) {
-                try {
-                    let event = null;
-
-                    EventMap.forEach(({ id: event_id, event: event_event }) => {
-                        if (event_id === id) {
-                            event = event_event;
-                        }
-                    });
-
-                    if (event) {
-                        event();
-                    }
-                    else {
-                        throw new Error("CLICK EVENT ID NOT FOUND!");
-                    }
-                }
-                catch (e) {
-                    console.error(e.message);
-                    return;
-                }
-            };
-        </script>
-    </head>
-    <body>
-        <div id="root"></div>
-    </body>
 </html>

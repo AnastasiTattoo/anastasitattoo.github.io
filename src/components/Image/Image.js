@@ -1,25 +1,25 @@
-import Component from "../../util/Component/Component.js";
+import Component from "/src/components/Component/Component";
 
 export class Image extends Component {
-    async renderContent() {
-        const {
-            name = '',
-            mix: {
-                id = '',
-                className = '',
-            } = {},
-            src = ''
-        } = this.props;
+  async render() {
+    const {
+      src = '',
+      alt = '',
+      mix: {
+        id = '',
+        className = '',
+      } = {},
+    } = this.props;
 
-        return `
-            <img
-              id="${ id }"
-              class="${ className }"
-              src="${ src }"
-              alt="${ name }"
-            />
-        `;
-    }
+    return `
+      <img
+        ${id ? `id="${id}"` : ''}
+        ${className ? `class="${className}"` : ''}
+        ${src ? `src="${src}"` : ''}
+        ${alt ? `alt="${alt}"` : ''}
+      />
+    `;
+  }
 };
 
 export default Image;
