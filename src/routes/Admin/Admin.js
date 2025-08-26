@@ -79,7 +79,7 @@ export class Admin extends RouteComponent {
           ${await renderComponent(Button, {
             mix: { className: 'copy-row' },
             text: 'Copy Link',
-            onClick: () => copyLinkToCard(i),
+            onClick: () => this.copyLinkToCard(i),
           })}
         </div>
       `;
