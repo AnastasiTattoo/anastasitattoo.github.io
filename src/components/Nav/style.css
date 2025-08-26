@@ -48,7 +48,6 @@ nav .nav-links .nav-button:hover::after {
 }
 
 nav .nav-links .nav-button:active::after {
-  transform: rotateY(0deg);
   border-bottom-color: #a27670;
 }
 

@@ -39,7 +39,6 @@
 }
 
 #Home .author-link:active::after {
-  transform: rotateY(0deg);
   border-bottom-color: #a27670;
 }
 
