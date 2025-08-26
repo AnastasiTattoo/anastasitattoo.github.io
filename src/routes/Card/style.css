@@ -1,0 +1,161 @@
+.card {
+  position: relative;
+  width: fit-content;
+  height: 800px;
+  max-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto;
+  cursor: pointer;
+}
+
+.card:active,
+.card:hover,
+.card:focus,
+.card:focus-visible {
+  background: none;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.card-side {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: transform 0.2s linear;
+}
+
+.card-side-front {
+  position: static;
+}
+
+.card[data-side="front"] .card-side-front {
+  transform: rotateY(0deg);
+  transition-delay: 0.2s;
+}
+
+.card[data-side="back"] .card-side-front {
+  transform: rotateY(-90deg);
+}
+
+.card[data-side="front"] .card-side-back {
+  transform: rotateY(90deg);
+}
+
+.card[data-side="back"] .card-side-back {
+  transform: rotateY(0deg);
+  transition-delay: 0.2s;
+}
+
+.card-data-price {
+  position: absolute;
+  top: 21%;
+  left: 26%;
+  font-size: 6vh;
+  font-weight: 600;
+  color: #1f1c10;
+}
+
+.card-data-code {
+  top: 74.75%;
+  position: absolute;
+  left: 51%;
+  font-size: 3.5vh;
+  font-weight: 600;
+  color: #1f1c10;
+}
+
+.card-subtext {
+  margin-top: 20px;
+  justify-self: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  cursor: default;
+}
+
+#CardPage:has(.empty-title) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 138px);
+  flex-direction: column;
+  gap: 12px;
+}
+
+.empty-title {
+  font-size: 60px;
+  color: #9D5248;
+  cursor: default;
+}
+
+.empty-subtitle {
+  display: flex;
+  gap: 10px;
+}
+
+.empty-subtitle-front,
+.empty-subtitle-link {
+  font-size: 34px;
+  line-height: normal;
+  color: #9D5248;
+}
+
+.empty-subtitle-link:active,
+.empty-subtitle-link:hover {
+  color: #a27670;
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    max-width: 80vw;
+  }
+
+  .empty-title {
+    font-size: 42px;
+  }
+
+  .empty-subtitle {
+    gap: 8px;
+  }
+
+  .empty-subtitle-front,
+  .empty-subtitle-link {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .card {
+    height: unset;
+    max-height: unset;
+  }
+
+  .card-data-price {
+    font-size: 9vw;
+  }
+
+  .card-data-code {
+    font-size: 5vw;
+  }
+  
+  .empty-title {
+    font-size: 28px;
+  }
+
+  .empty-subtitle {
+    gap: 6px;
+  }
+
+  .empty-subtitle-front,
+  .empty-subtitle-link {
+    font-size: 20px;
+  }
+}

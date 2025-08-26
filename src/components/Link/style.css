@@ -1,0 +1,14 @@
+a {
+  color: #000000;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+a:hover {
+  color: #dddddd;
+}
+
+a:active {
+  color: #aaaaaa;
+}

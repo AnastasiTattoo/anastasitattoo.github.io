@@ -1,0 +1,85 @@
+#AdminPage .cards-table {
+  max-width: 80vw;
+  margin-inline: auto;
+}
+
+#AdminPage .card-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+#AdminPage .card-row:first-child > div {
+  font-weight: 700;
+}
+
+#AdminPage .card-row:first-child,
+#AdminPage .card-row:last-child {
+  margin-bottom: 0;
+}
+
+#AdminPage .card-row-code,
+#AdminPage .card-row-price {
+  width: 200px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 20px;
+}
+
+#AdminPage .add-new-row {
+  color: #ffffff;
+  background-color: #3a6c3a;
+}
+
+#AdminPage .add-new-row:hover {
+  background-color: #1a331a;
+}
+
+#AdminPage .add-new-row:active {
+  background-color: #021d02;
+}
+
+#AdminPage .remove-row {
+  color: #ffffff;
+  background-color: #c02020;
+}
+
+#AdminPage .remove-row:hover {
+  background-color: #630e0e;
+}
+
+#AdminPage .remove-row:active {
+  background-color: #300101;
+}
+
+@media screen and (max-width: 767px) {
+  #AdminPage .card-row-code,
+  #AdminPage .card-row-price {
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  #AdminPage .card-row {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 40px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #AdminPage .card-row:first-child > div {
+    font-weight: 700;
+  }
+
+  #AdminPage .card-row:first-child,
+  #AdminPage .card-row:last-child {
+    margin-bottom: 0;
+  }
+
+  #AdminPage .card-row-code,
+  #AdminPage .card-row-price {
+    width: 100%;
+  }
+}
