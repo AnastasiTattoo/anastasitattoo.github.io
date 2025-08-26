@@ -1,8 +1,8 @@
-import Component from '/src/components/Component/Component';
-import Button from '/src/components/Button/Button';
-import renderComponent from '/src/utils/renderComponent';
-import redirect from '/src/utils/redirect';
-import checkIsAdmin from '/src/utils/checkIsAdmin';
+import Component from '/src/components/Component/Component.js';
+import Button from '/src/components/Button/Button.js';
+import renderComponent from '/src/utils/renderComponent.js';
+import redirect from '/src/utils/redirect.js';
+import checkIsAdmin from '/src/utils/checkIsAdmin.js';
 
 export class Nav extends Component {
   async render() {

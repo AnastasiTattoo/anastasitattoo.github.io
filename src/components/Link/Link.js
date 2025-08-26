@@ -1,4 +1,4 @@
-import Component from "/src/components/Component/Component";
+import Component from "/src/components/Component/Component.js";
 
 export class Link extends Component {
   async render() {

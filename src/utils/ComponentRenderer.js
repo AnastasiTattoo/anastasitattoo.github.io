@@ -1,5 +1,5 @@
-import RootComponent from '/src/components/RootComponent/RootComponent';
-import elementFromHTML from '/src/utils/elementFromHTML';
+import RootComponent from '/src/components/RootComponent/RootComponent.js';
+import elementFromHTML from '/src/utils/elementFromHTML.js';
 
 export class ComponentRenderer {
   root = null;

@@ -1,4 +1,4 @@
-import { COMPONENTS_PATH } from "/src/utils/constants";
+import { COMPONENTS_PATH } from "/src/utils/constants.js";
 
 export class Component {
   constructor(props) {

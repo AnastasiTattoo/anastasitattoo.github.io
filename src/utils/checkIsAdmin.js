@@ -1,4 +1,4 @@
-import { ADMIN_SAVE_NAME } from "/src/utils/constants";
+import { ADMIN_SAVE_NAME } from "/src/utils/constants.js";
 
 export const checkIsAdmin = async () => {
   const savedPassword = window.sessionStorage.getItem(ADMIN_SAVE_NAME);

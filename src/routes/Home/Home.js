@@ -1,6 +1,6 @@
-import Link from '/src/components/Link/Link';
-import RouteComponent from '/src/routes/RouteComponent/RouteComponent';
-import renderComponent from '/src/utils/renderComponent';
+import Link from '/src/components/Link/Link.js';
+import RouteComponent from '/src/routes/RouteComponent/RouteComponent.js';
+import renderComponent from '/src/utils/renderComponent.js';
 
 export class Home extends RouteComponent {
   async render() {

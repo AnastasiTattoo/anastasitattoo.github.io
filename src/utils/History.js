@@ -1,4 +1,4 @@
-import getParamsFromPath from "./getParamsFromPath";
+import getParamsFromPath from "/src/utils/getParamsFromPath.js";
 
 export class History {
   constructor() {

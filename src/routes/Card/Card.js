@@ -1,8 +1,8 @@
-import Link from '/src/components/Link/Link';
-import Image from '/src/components/Image/Image';
-import RouteComponent from '/src/routes/RouteComponent/RouteComponent';
-import renderComponent from '/src/utils/renderComponent';
-import { CARD_CODE_SAVE_NAME } from '/src/utils/constants';
+import Link from '/src/components/Link/Link.js';
+import Image from '/src/components/Image/Image.js';
+import RouteComponent from '/src/routes/RouteComponent/RouteComponent.js';
+import renderComponent from '/src/utils/renderComponent.js';
+import { CARD_CODE_SAVE_NAME } from '/src/utils/constants.js';
 
 export class Card extends RouteComponent {
   async getCardData() {

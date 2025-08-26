@@ -1,8 +1,8 @@
-import Button from '/src/components/Button/Button';
-import RouteComponent from '/src/routes/RouteComponent/RouteComponent';
-import renderComponent from '/src/utils/renderComponent';
-import elementFromHTML from '/src/utils/elementFromHTML';
-import { ADMIN_SAVE_NAME } from '/src/utils/constants';
+import Button from '/src/components/Button/Button.js';
+import RouteComponent from '/src/routes/RouteComponent/RouteComponent.js';
+import renderComponent from '/src/utils/renderComponent.js';
+import elementFromHTML from '/src/utils/elementFromHTML.js';
+import { ADMIN_SAVE_NAME } from '/src/utils/constants.js';
 
 export class Admin extends RouteComponent {
   saveAdminSession() {

@@ -1,12 +1,12 @@
-import Component from '/src/components/Component/Component';
-import Home from '/src/routes/Home/Home';
-import Card from '/src/routes/Card/Card';
-import Admin from '/src/routes/Admin/Admin';
-import renderComponent from '/src/utils/renderComponent';
-import getCurrentPage from '/src/utils/getPage';
-import redirect from '/src/utils/redirect';
-import checkIsAdmin from '/src/utils/checkIsAdmin';
-import { PAGE } from '/src/utils/constants';
+import Component from '/src/components/Component/Component.js';
+import Home from '/src/routes/Home/Home.js';
+import Card from '/src/routes/Card/Card.js';
+import Admin from '/src/routes/Admin/Admin.js';
+import renderComponent from '/src/utils/renderComponent.js';
+import getCurrentPage from '/src/utils/getPage.js';
+import redirect from '/src/utils/redirect.js';
+import checkIsAdmin from '/src/utils/checkIsAdmin.js';
+import { PAGE } from '/src/utils/constants.js';
 
 export class Router extends Component {
   constructor(props = {}) {

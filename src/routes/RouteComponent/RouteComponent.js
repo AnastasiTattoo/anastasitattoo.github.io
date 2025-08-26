@@ -1,5 +1,5 @@
-import Component from '/src/components/Component/Component';
-import { ROUTES_PATH } from '/src/utils/constants';
+import Component from '/src/components/Component/Component.js';
+import { ROUTES_PATH } from '/src/utils/constants.js';
 
 export class RouteComponent extends Component {
   getStylePath() {
