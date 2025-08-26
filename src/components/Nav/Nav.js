@@ -11,8 +11,8 @@ export class Nav extends Component {
     return `
       <nav>
         <div class="nav-links">
-          ${await renderComponent(Button, { text: 'Home', mix: { className: 'nav-button home-nav-button' }, onClick: () => redirect('') })}
-          ${await renderComponent(Button, { text: 'Card', mix: { className: 'nav-button card-nav-button' }, onClick: () => redirect('page=card') })}
+          ${await renderComponent(Button, { text: 'Anastasi.Tattoo', mix: { className: 'nav-button home-nav-button' }, onClick: () => redirect('') })}
+          ${await renderComponent(Button, { text: 'My Gift Card', mix: { className: 'nav-button card-nav-button' }, onClick: () => redirect('page=card') })}
           ${isAdmin
             ? await renderComponent(Button, { text: 'Admin', mix: { className: 'nav-button admin-nav-button' }, onClick: () => redirect('page=admin') })
             : ''

@@ -22,7 +22,7 @@ export class Admin extends RouteComponent {
     const currentRowCode = currentRow.getElementsByClassName('card-row-code')[0];
     const currentRowPrice = currentRow.getElementsByClassName('card-row-price')[0];
 
-    if (!currentRowCode.value || isNaN(+currentRowCode.value)) return;
+    if (!currentRowCode.value) return;
     if (!currentRowPrice.value || isNaN(+currentRowPrice.value)) return;
 
     const newCard = {};
@@ -37,13 +37,21 @@ export class Admin extends RouteComponent {
     const currentRow = document.querySelectorAll('#AdminPage .card-row')[index + 1];
     const currentRowCode = currentRow.getElementsByClassName('card-row-code')[0];
 
-    if (!currentRowCode.value || isNaN(+currentRowCode.value)) return;
+    if (!currentRowCode.value) return;
 
     const newCards = this.cards;
     delete newCards[currentRowCode.value];
 
     await LESCH.DataBaseController.saveCards(newCards);
     this.updateAdminPage();
+  }
+
+  copyLinkToCard(index) {
+    const currentRow = document.querySelectorAll('#AdminPage .card-row')[index + 1];
+    const currentRowCode = currentRow.getElementsByClassName('card-row-code')[0];
+    if (!currentRowCode.value) return;
+
+    navigator.clipboard.writeText(`https://anastasitattoo.github.io/?page=card&code=${currentRowCode.value}`);
   }
 
   async renderCards() {
@@ -67,6 +75,11 @@ export class Admin extends RouteComponent {
             mix: { className: 'remove-row' },
             text: 'Remove',
             onClick: () => this.removeCard(i),
+          })}
+          ${await renderComponent(Button, {
+            mix: { className: 'copy-row' },
+            text: 'Copy Link',
+            onClick: () => copyLinkToCard(i),
           })}
         </div>
       `;
